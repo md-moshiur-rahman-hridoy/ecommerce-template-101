@@ -840,3 +840,25 @@ footer .install img {
 }
 
 
+
+/* alert design */
+.alert-success{
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: #92eeae;
+  color: #015e42;
+}
+.alert-danger{
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: #ee929d;
+  color: #64202f;
+}

@@ -40,5 +40,7 @@ $(document).ready( ()=> {
         var subTotalPrice = tp + vat + parseInt($(".dPrice").html());
         $(".subTotalPrice").html(subTotalPrice);
     });
+
+    
 });
 
