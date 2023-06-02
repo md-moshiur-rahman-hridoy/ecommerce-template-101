@@ -1,7 +1,7 @@
 <?php
 // All functions are here about backend functionality
 session_start();
-
+$_SESSION['auth'] = false;
 // Include database
 include_once "Database.php";
 include_once "validation.php";
@@ -30,3 +30,37 @@ function createUser($name, $email, $password){
     
 
 }
+
+
+// Login functionality
+function loginUser($email, $password){
+    // validate email and password using our validation function
+    $email = data_validation($email);
+    $email = valid_email($email);
+    $password = data_validation($password);
+    $password = hash_password($password);
+
+    // Checking empty feild
+    if ($email=="" || $password=="") {
+        $_SESSION['ul_alert'] = "<div class='alert-danger'>Fill cannot be empty!</div>";
+    }else{
+        $query = "SELECT * FROM user WHERE email='$email' AND password='$password'";
+        $result = mysqli_query(dbconn(), $query);
+        $row = mysqli_fetch_assoc($result);
+
+        // count data row
+        $count = mysqli_num_rows($result);
+        if ($count == 1) {
+            // $_SESSION['ul_alert'] = "<div class='alert-success'>Login Successfully</div>";
+
+            // Redirect user
+            header("Location: ./account.php");
+            $_SESSION['auth'] = TRUE;
+            $_SESSION['auth-data'] = $row['name'];
+        }else{
+            $_SESSION['ul_alert'] = "<div class='alert-danger'>Wrong username/password!</div>";        
+        }
+    }
+}
+
+
