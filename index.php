@@ -7,7 +7,7 @@
         <h2>Super Value deals</h2>
         <h1>All product are here</h1>
         <p>Save more with coupons & up to 70% off!</p>
-        <button>Shop Now</button>
+        <button id="heroShopButton">Shop Now</button>
       </div>
     </section>
 

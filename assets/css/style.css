@@ -777,16 +777,16 @@ footer .install img {
   color: #fff;
 }
 
-
 /* Cart page */
-#cart{
+#cart {
   display: flex;
   justify-content: space-between;
 }
-#cart h4{
+#cart h4 {
   margin-bottom: 20px;
 }
-#cart .cart-basket th, td{
+#cart .cart-basket th,
+td {
   min-width: 200px;
   text-align: left;
 }
@@ -798,51 +798,48 @@ footer .install img {
   border-radius: 4px;
   text-align: center;
 }
-#cart .cart-basket .qt{
+#cart .cart-basket .qt {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
-#cart .cart-basket .qt i, input{
+#cart .cart-basket .qt i,
+input {
   margin: 5px;
 }
-.qt #qtMinus, #qtPlus{
+.qt #qtMinus,
+#qtPlus {
   cursor: pointer;
 }
-#cart .cart-basket img{
+#cart .cart-basket img {
   max-width: 100px;
 }
 
-
-
-
-#cart .subtotal{
+#cart .subtotal {
   min-width: 300px;
   border-radius: 4px;
   padding: 30px;
   background-color: #041e42;
 }
-#cart .subtotal h4{
+#cart .subtotal h4 {
   color: #fff;
   margin-bottom: 20px;
 }
-#cart .subtotal .count-row{
+#cart .subtotal .count-row {
   display: flex;
   justify-content: space-between;
 }
-#cart .subtotal .count-row p{
+#cart .subtotal .count-row p {
   margin-bottom: 5px;
   color: #f6dbf6;
 }
-#cart .subtotal .count-row b{
+#cart .subtotal .count-row b {
   margin-top: 20px;
   color: #fff;
 }
 
-
-
 /* alert design */
-.alert-success{
+.alert-success {
   width: 100%;
   padding: 10px;
   text-align: center;
@@ -852,7 +849,7 @@ footer .install img {
   background-color: #92eeae;
   color: #015e42;
 }
-.alert-danger{
+.alert-danger {
   width: 100%;
   padding: 10px;
   text-align: center;
@@ -861,4 +858,54 @@ footer .install img {
   font-weight: 500;
   background-color: #ee929d;
   color: #64202f;
+}
+
+/* my account page */
+#myaccount {
+  display: flex;
+}
+#myaccount .sidebar,
+.main-content {
+  padding: 22px;
+}
+#myaccount .main-content .welcom-message {
+  font-size: 24px;
+}
+#myaccount .sidebar {
+  background-color: #015e42;
+}
+#myaccount .sidebar ul li {
+  padding: 13px 0px;
+  border-bottom: 1px solid #fff;
+}
+#myaccount .sidebar ul li a {
+  color: #fff;
+  margin-left: 5px;
+}
+#myaccount .sidebar ul li i {
+  color: #f5ed01;
+}
+
+/* profile */
+#profile .edit {
+  margin-top: 20px;
+  background-color: #041e42;
+  color: white;
+}
+#profile .viewFullProfile {
+  margin-top: 20px;
+  background-color: #049469;
+  color: white;
+  margin-left: 20px;
+}
+#profile .photo {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#profile .photo img {
+  width: 100%;
+  border-radius: 50%;
 }

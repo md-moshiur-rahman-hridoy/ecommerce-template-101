@@ -12,34 +12,10 @@
     }
 ?>
 
-    
     <div id="myaccount" class="section-p1 section-m1">
-        <div class="sidebar">
-            <ul>
-                <li>
-                    <i class="fa-solid fa-receipt"></i>
-                    <a href="#">My Orders</a>
-                </li>
-                <li>
-                    <i class="fa-solid fa-truck"></i>
-                    <a href="#">Delivery Details</a>
-                </li>
-                <li>
-                    <i class="fa-solid fa-user"></i>
-                    <a href="#">Profile</a>
-                </li>
-                <li>
-                <i class="fa-solid fa-gear"></i>
-                    <a href="#">Settings</a>
-                </li>
-                <li>
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                    <a href="./logout.php">Logout</a>
-                </li>
-            </ul>
-        </div>
+        <?php include "inc/account-sidebar.php";?>
         <div class="main-content">
-            <h4>Welcome, <?echo $_SESSION['auth-data'];?></h4>
+            <h4 class="welcom-message">Welcome, <?php echo $_SESSION['auth-data']['name'];?></h4>
         </div>
     </div>
 

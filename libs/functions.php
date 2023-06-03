@@ -56,7 +56,7 @@ function loginUser($email, $password){
             // Redirect user
             header("Location: ./account.php");
             $_SESSION['auth'] = TRUE;
-            $_SESSION['auth-data'] = $row['name'];
+            $_SESSION['auth-data'] = $row;
         }else{
             $_SESSION['ul_alert'] = "<div class='alert-danger'>Wrong username/password!</div>";        
         }

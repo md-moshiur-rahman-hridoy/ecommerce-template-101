@@ -41,6 +41,9 @@ $(document).ready( ()=> {
         $(".subTotalPrice").html(subTotalPrice);
     });
 
-    
+    $("#heroShopButton").click(()=>{
+        window.location.href = "shop.php";
+        console.error("click");
+    });
 });
 
