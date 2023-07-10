@@ -1,5 +1,5 @@
 <?php include "inc/header.php";?>
-
+<?php include "libs/functions.php";?>
     <div id="shop-hero" class="section-p1">
       <h4>Enjoy your shopping in bigest mall</h4>
       <div class="searchbar">
@@ -12,11 +12,23 @@
 
     <div id="product-showcase" class="section-p1 section-m1">
       <div id="feture-product">
-        <div class="product">
-            <img src="assets/images/products/f1.jpg" alt="Product" />
+          <?php
+            $result = select('products');
+            if(mysqli_num_rows($result) > 0){
+              foreach($result as $product){
+                $p_id = $product['id'];
+                $p_name = $product['product_name'];
+                $p_details = $product['product_details'];
+                $p_price = $product['product_price'];
+                $p_sell = $product['sell_price'];
+                $p_stoke = $product['stoke'];
+                $p_image = $product['product_image'];
+          ?>
+          <div class="product" id="p_id_<?= $p_id;?>">
+            <img src="assets/images/products/<?= $p_image;?>" alt="Product" />
             <div class="p-details">
               <span class="product-brand">adidas</span>
-              <h5>Cartoon Astronaut T-Shirts</h5>
+              <h5><?= $p_name;?></h5>
               <div class="star">
                 <span class="material-symbols-sharp"> star </span>
                 <span class="material-symbols-sharp"> star </span>
@@ -24,138 +36,38 @@
                 <span class="material-symbols-sharp"> star </span>
                 <span class="material-symbols-sharp"> star </span>
               </div>
-              <h4>$79</h4>
-              <a href="#" class="cart">
-                <span class="material-symbols-sharp"> add_shopping_cart </span>
-              </a>
+              <h4>$<?= $p_price;?></h4>
+              <form action="" method="post" ="form-submit">
+                <input type="hidden" class="pid" value="<?= $p_id;?>">
+                <input type="hidden" class="pname" value="<?= $p_name;?>">
+                <input type="hidden" class="pprice" value="<?= $p_sell;?>">
+                <input type="hidden" class="pimage" value="<?= $p_image;?>">
+                <?php
+                  if(isset($_SESSION['auth-data']['id'])){
+                ?>
+                <input type="hidden" class="uid" value="<?=$_SESSION['auth-data']['id']?>">
+                <?php
+                  }else{
+                ?>
+                <input type="hidden" class="uid" value="null">
+                <?php
+                  }
+                ?>
+                
+                <button type="submit" class="cart" id="addItemButton">
+                  <span class="material-symbols-sharp"> add_shopping_cart </span>
+                </button>
+              </form>
+              
             </div>
           </div>
-          <div class="product">
-            <img src="assets/images/products/f8.jpg" alt="Product" />
-            <div class="p-details">
-              <span class="product-brand">adidas</span>
-              <h5>Cartoon Astronaut T-Shirts</h5>
-              <div class="star">
-                <span class="material-symbols-sharp"> star </span>
-                <span class="material-symbols-sharp"> star </span>
-                <span class="material-symbols-sharp"> star </span>
-                <span class="material-symbols-sharp"> star </span>
-                <span class="material-symbols-sharp"> star </span>
-              </div>
-              <h4>$29</h4>
-              <a href="#" class="cart">
-                <span class="material-symbols-sharp"> add_shopping_cart </span>
-              </a>
-            </div>
-          </div>
-          <div class="product">
-            <img src="assets/images/products/f2.jpg" alt="Product" />
-            <div class="p-details">
-              <span class="product-brand">adidas</span>
-              <h5>Cartoon Astronaut T-Shirts</h5>
-              <div class="star">
-                <span class="material-symbols-sharp"> star </span>
-                <span class="material-symbols-sharp"> star </span>
-                <span class="material-symbols-sharp"> star </span>
-                <span class="material-symbols-sharp"> star </span>
-                <span class="material-symbols-sharp"> star </span>
-              </div>
-              <h4>$55</h4>
-              <a href="#" class="cart">
-                <span class="material-symbols-sharp"> add_shopping_cart </span>
-              </a>
-            </div>
-          </div>
-          <div class="product">
-            <img src="assets/images/products/f3.jpg" alt="Product" />
-            <div class="p-details">
-              <span class="product-brand">adidas</span>
-              <h5>Cartoon Astronaut T-Shirts</h5>
-              <div class="star">
-                <span class="material-symbols-sharp"> star </span>
-                <span class="material-symbols-sharp"> star </span>
-                <span class="material-symbols-sharp"> star </span>
-                <span class="material-symbols-sharp"> star </span>
-                <span class="material-symbols-sharp"> star </span>
-              </div>
-              <h4>$99</h4>
-              <a href="#" class="cart">
-                <span class="material-symbols-sharp"> add_shopping_cart </span>
-              </a>
-            </div>
-          </div>
-          <div class="product">
-            <img src="assets/images/products/f4.jpg" alt="Product" />
-            <div class="p-details">
-              <span class="product-brand">adidas</span>
-              <h5>Cartoon Astronaut T-Shirts</h5>
-              <div class="star">
-                <span class="material-symbols-sharp"> star </span>
-                <span class="material-symbols-sharp"> star </span>
-                <span class="material-symbols-sharp"> star </span>
-                <span class="material-symbols-sharp"> star </span>
-                <span class="material-symbols-sharp"> star </span>
-              </div>
-              <h4>$66</h4>
-              <a href="#" class="cart">
-                <span class="material-symbols-sharp"> add_shopping_cart </span>
-              </a>
-            </div>
-          </div>
-          <div class="product">
-            <img src="assets/images/products/f5.jpg" alt="Product" />
-            <div class="p-details">
-              <span class="product-brand">adidas</span>
-              <h5>Cartoon Astronaut T-Shirts</h5>
-              <div class="star">
-                <span class="material-symbols-sharp"> star </span>
-                <span class="material-symbols-sharp"> star </span>
-                <span class="material-symbols-sharp"> star </span>
-                <span class="material-symbols-sharp"> star </span>
-                <span class="material-symbols-sharp"> star </span>
-              </div>
-              <h4>$70</h4>
-              <a href="#" class="cart">
-                <span class="material-symbols-sharp"> add_shopping_cart </span>
-              </a>
-            </div>
-          </div>
-          <div class="product">
-            <img src="assets/images/products/f6.jpg" alt="Product" />
-            <div class="p-details">
-              <span class="product-brand">adidas</span>
-              <h5>Cartoon Astronaut T-Shirts</h5>
-              <div class="star">
-                <span class="material-symbols-sharp"> star </span>
-                <span class="material-symbols-sharp"> star </span>
-                <span class="material-symbols-sharp"> star </span>
-                <span class="material-symbols-sharp"> star </span>
-                <span class="material-symbols-sharp"> star </span>
-              </div>
-              <h4>$80</h4>
-              <a href="#" class="cart">
-                <span class="material-symbols-sharp"> add_shopping_cart </span>
-              </a>
-            </div>
-          </div>
-          <div class="product">
-            <img src="assets/images/products/f7.jpg" alt="Product" />
-            <div class="p-details">
-              <span class="product-brand">adidas</span>
-              <h5>Cartoon Astronaut T-Shirts</h5>
-              <div class="star">
-                <span class="material-symbols-sharp"> star </span>
-                <span class="material-symbols-sharp"> star </span>
-                <span class="material-symbols-sharp"> star </span>
-                <span class="material-symbols-sharp"> star </span>
-                <span class="material-symbols-sharp"> star </span>
-              </div>
-              <h4>$101</h4>
-              <a href="#" class="cart">
-                <span class="material-symbols-sharp"> add_shopping_cart </span>
-              </a>
-            </div>
-          </div>
+          <?php
+              }
+            }else{
+              echo "<h4>No product avaiable!</h4>";
+            }
+          ?>
+          
       </div>
       <div class="pagination">
         <ul>

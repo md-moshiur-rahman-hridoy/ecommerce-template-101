@@ -1,3 +1,21 @@
+<?php 
+    session_start();
+    if(isset($_SESSION)){
+      if($_SESSION['auth'] && $_SESSION['auth-data']['role'] == 'admin'){
+        //start here code
+      }else{
+        function logout(){
+        session_destroy();
+        header("Location: login.php");
+      }
+       logout();
+      }
+    }else{
+      header("Location: login.php");
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,15 +34,15 @@
           <img src="../assets/images/logo/logo-dark.png" alt="Matobyte" />
           <ul id="sidebarMenu">
             <li>
-              <a href="#">
+              <a href="./">
                 <i class="fa-solid fa-table-columns"></i> Dashboard</a
               >
             </li>
             <li>
-              <a href="#"><i class="fa-solid fa-receipt"></i> Orders</a>
+              <a href="order.php"><i class="fa-solid fa-receipt"></i> Orders</a>
             </li>
             <li>
-              <a href="#"
+              <a href="products.php"
                 ><i class="fa-solid fa-clipboard-list"></i> Products</a
               >
             </li>
@@ -32,7 +50,7 @@
               <a href="#"><i class="fa-solid fa-list"></i> Categories</a>
             </li>
             <li>
-              <a href="#"
+              <a href="customers.php"
                 ><i class="fa-solid fa-users-viewfinder"></i> Customers</a
               >
             </li>
@@ -48,7 +66,7 @@
               <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
             </li>
             <li>
-              <a href="#"
+              <a href="logout.php"
                 ><i class="fa-solid fa-right-from-bracket"></i> Logout</a
               >
             </li>
@@ -66,19 +84,11 @@
           </div>
           <div class="menu">
             <div class="profile">
-              <img src="../assets/images/people/default.png" alt="profile">
+              <img src="../assets/images/people/default.png" alt="profile" />
               <div class="details">
-                <p>Rm Hridoy</p>
+                <p><?php echo $_SESSION['auth-data']['name'];?></p>
                 <small>Founder</small>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/js/jquery-3.7.0.min.js"></script>
-    <script src="js/app.js"></script>
-  </body>
-</html>

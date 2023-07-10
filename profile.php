@@ -1,6 +1,5 @@
 <?php include "inc/header.php";?>
 <?php 
-    session_start();
     if(isset($_SESSION)){
         if($_SESSION['auth']){
             //start here code

@@ -1,6 +1,5 @@
 <?php
 // All functions are here about backend functionality
-session_start();
 $_SESSION['auth'] = false;
 // Include database
 include_once "Database.php";
@@ -61,6 +60,14 @@ function loginUser($email, $password){
             $_SESSION['ul_alert'] = "<div class='alert-danger'>Wrong username/password!</div>";        
         }
     }
+}
+
+
+// select query function
+function select($table){
+    $query = "SELECT * FROM `$table`";
+    $result = mysqli_query(dbconn(), $query);
+    return $result;
 }
 
 

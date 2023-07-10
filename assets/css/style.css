@@ -116,7 +116,12 @@ body {
   position: absolute;
   margin: -10px 0 -10px 0;
 }
-
+.card-page-login-redirect{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 /* Home page start */
 #hero {
   background-image: url("../images/hero4.png");

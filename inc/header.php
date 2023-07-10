@@ -2,6 +2,12 @@
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
+session_start();
+if (isset($_SESSION['auth']) && $_SESSION['auth'] = TRUE) {
+  $_SESSION['auth'] = TRUE;
+}else{
+  $_SESSION['auth'] = FALSE;
+}
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +27,7 @@ header("Pragma: no-cache");
 
   <body>
     <section id="header">
-      <a href="#" id="brandName">
+      <a href="./" id="brandName">
         <img src="assets/images/logo/logo-light.png" alt="Matobyte" />
       </a>
       <div>

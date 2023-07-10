@@ -45,5 +45,23 @@ $(document).ready( ()=> {
         window.location.href = "shop.php";
         console.error("click");
     });
+
+    // add item to card using ajax
+    $('#addItemButton').click(function(e){
+        console.log("click")
+        e.preventDefault();
+        var $form = $(this).closest('form-submit');
+        var pid = $form.find('.pid').val();
+        var pname = $form.find('.pname').val();
+        var pprice = $form.find('.pprice').val();
+        var pimage = $form.find('.pimage').val();
+        var uid = $form.find('uid').val();
+
+        if(uid == null){
+            console.log("Login please!");
+        }else{
+            console.log("User login!");
+        }
+    });
 });
 
